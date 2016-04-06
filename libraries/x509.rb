@@ -40,7 +40,7 @@ end
 def x509_verify_key_cert_match(key_text, cert_text)
   key = OpenSSL::PKey::RSA.new(key_text)
   cert = OpenSSL::X509::Certificate.new(cert_text)
-  key.n == cert.public_key.n
+  cert.verify key
 end
 
 def urlsafe_encode64(bin)
