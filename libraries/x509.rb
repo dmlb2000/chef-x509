@@ -40,6 +40,9 @@ end
 def x509_verify_key_cert_match(key_text, cert_text)
   key = OpenSSL::PKey::RSA.new(key_text)
   cert = OpenSSL::X509::Certificate.new(cert_text)
+  puts key.to_s
+  puts cert.to_s
+  puts cert.public_key.to_s
   key.to_s.eql?(cert.public_key.to_s)
 end
 
